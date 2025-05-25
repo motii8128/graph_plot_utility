@@ -42,6 +42,6 @@ fn main() {
     plotter.save("./result.svg");
 }
 ```
+以下のように**result.svg**が出力されます
 
-
-
+![](./result.svg)
