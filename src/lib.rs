@@ -65,7 +65,10 @@ impl Plotter {
             .x_range(self.min_x, self.max_x)
             .y_range(-1.0 * self.y_size, self.y_size)
             .x_label("x")
-            .y_label("y");
+            .y_label("y")
+            .x_max_ticks((1.0 / self.delta_x) as usize)
+            .y_max_ticks((1.0 / self.delta_x) as usize);
+
 
         let func_num = self.plots.len();
 
