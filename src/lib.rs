@@ -47,6 +47,17 @@ impl Plotter {
         self.plots.push(new_plot);
     }
 
+    pub fn add_points(&mut self, points : Vec<(f64, f64)>)
+    {
+        let new_plot = Plot::new(points).point_style(
+            PointStyle::new()
+                .colour("#000000")
+                .size(1.0)
+        );
+
+        self.plots.push(new_plot);
+    }
+
     pub fn save(&self, file_name : &str)
     {
         let view = ContinuousView::new();
