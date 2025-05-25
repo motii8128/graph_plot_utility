@@ -10,7 +10,7 @@
 graph_plot_utility = {git = "https://github.com/motii8128/graph_plot_utility.git"}
 ```
 
-# 使用例
+# 使用例１
 ２つの関数をグラフに描く例
 ```rs
 use graph_plot_utility::Plotter;
@@ -45,3 +45,36 @@ fn main() {
 以下のように**result.svg**が出力されます
 
 ![](./result.svg)
+
+# 使用例２
+
+つぎに点群を描画する場合の例を示します
+```rs
+use graph_plot_utility::Plotter;
+
+
+fn main() {
+    // 初期化
+    // ｘの範囲は-3.0 ~ 3.0
+    // yの範囲は-3.0 ~ 3.0
+    // xは0.01ごとに描画するが今回は関係ない
+    let mut plotter = Plotter::new(-3.0, 3.0, 0.01, 3.0);
+
+    // ベクトルで(x,y)で点群を描画できる
+    let mut points = Vec::<(f64,f64)>::new();
+
+    // (x,y) = (-2.0, -2.0)の点をベクトルに追加
+    points.push((-2.0, -2.0));
+    points.push((-1.0, -1.0));
+    points.push((0.0, 0.0));
+    points.push((1.0, 1.0));
+
+    // プロッターに点群を追加
+    plotter.add_points(points);
+
+    plotter.save("./result_from_points.svg");
+}
+
+```
+
+![](./result_from_points.svg)
